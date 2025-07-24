@@ -1,0 +1,71 @@
+🏎️ F1 Race Time Prediction Using Qualifying Performance
+This project predicts Formula 1 race lap times using driver qualifying times. Leveraging machine learning and real-world data from the FastF1 API, it forecasts likely top finishers in an upcoming Grand Prix based on historical performance.
+
+📂 Project Overview
+Objective: Predict race pace from qualifying performance.
+Target GP: 2025 Chinese Grand Prix
+Data Sources:
+  FastF1 for real 2024 race lap times
+  Manually defined 2025 qualifying times
+Model Used: Gradient Boosting Regressor (via sklearn)
+
+⚙️ Technologies & Libraries
+fastf1 – to access historical race data
+pandas – for data manipulation
+scikit-learn – for regression modeling and evaluation 
+Python 3.10+
+
+📊 Methodology
+Data Collection:
+   Lap times from the 2024 Chinese GP were pulled using FastF1.
+   2025 Qualifying times were assumed and listed manually.
+Data Mapping:
+   Each driver was linked with their:
+   Code (e.g., VER for Max Verstappen)
+   Team (e.g., Red Bull)
+   Country
+Model Training:
+   The Gradient Boosting Regressor was trained using:
+   X: 2024 qualifying times
+   y: 2024 actual race lap times
+   Model performance was evaluated using Mean Absolute Error (MAE).
+Prediction:
+   The model predicts race lap times for 2025 based on the qualifying input.
+   Outputs include predicted lap time, country, team, and ranking with emojis 🥇🥈🥉.
+
+📌 Example Output
+🏁 Predicted Top 5 Finishers for 2025 Chinese GP 🏁
+🏎️🏎️🏎️🏎️🏎️🏎️🏎️🏎️🏎️🏎️🏎️🏎️🏎️🏎️🏎️🏎️🏎️🏎️🏎️🏎️🏎️🏎️
+🥇 Max Verstappen Red Bull(NED) — Predicted Race Time: 90.728 s
+🥈 Oscar Piastri McLaren(AUS) — Predicted Race Time: 90.754 s
+🥉 Lando Norris McLaren(GBR) — Predicted Race Time: 90.781 s
+🎖️ George Russell Mercedes(GBR) — Predicted Race Time: 90.822 s
+🎖️ Charles Leclerc Ferrari(MON) — Predicted Race Time: 90.899 s
+🔍 Model MAE: 0.35 seconds
+
+🧠 Insights
+   Lower qualifying times usually indicate faster predicted race pace.
+   Drivers from historically top-performing teams (e.g., Red Bull, Mercedes) rank higher.
+   The model shows promising accuracy (low MAE).
+
+🚀 How to Run
+Install Dependencies:
+   pip install fastf1 pandas scikit-learn
+Run the Script:
+    python chinese_gp_25.py
+Make sure internet is enabled, as FastF1 pulls live F1 data.
+
+📁 File Structure
+   chinese_gp_25.py: Main script to fetch data, train the model, and display results.
+   f1_cache/: Local FastF1 cache directory (auto-created).
+
+📌 Future Improvements
+  Add support for more seasons and dynamic qualifying inputs.
+  Visualize results using matplotlib or plotly.
+  Expand model to predict full race results (not just lap times).
+  Include tire strategies or weather data for more accuracy.
+
+🧑‍💻 Author
+Created by Atharva Gole
+Feel free to fork, star, and improve it for your own race analytics!
+for help mail:goleatharva673@gmail.com
